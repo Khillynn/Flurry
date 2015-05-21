@@ -1,0 +1,5 @@
+name: IcyFlurry
+version: 1.0
+description: mini game in an icy arena where players need to run from falling snow or they die
+author: Khillynn
+main: com.khillynn.IcyFlurry

@@ -28,6 +28,7 @@ import java.util.Random;
 public class IcyFlurry extends JavaPlugin implements Listener{
     @Override
     public void onEnable() {
+        final String world = "Ice_Game_Map";
         final int hellHailRadius = 9, coverRadius = 6;
         final ArrayList<Location> locations = new ArrayList<Location>();
         final ArrayList<Material> music = new ArrayList<Material>();
@@ -42,7 +43,7 @@ public class IcyFlurry extends JavaPlugin implements Listener{
         music.add(Material.RECORD_12);
         final List<Integer> randomXZs = new ArrayList<>();
         final List<Double> createXZs = new ArrayList<>();
-        final Location loc = Bukkit.getWorld("Ice_Game_Map").getSpawnLocation();
+        final Location loc = Bukkit.getWorld(world).getSpawnLocation();
 
         Bukkit.getPluginManager().registerEvents(this, this);
         getLogger().info("IcyFlurry is Enabled! =D");
@@ -68,7 +69,7 @@ public class IcyFlurry extends JavaPlugin implements Listener{
 
                 else if (tenSeconds >= 6 && (tenSeconds %2 == 0)) {
                     int diskNum = new Random().nextInt(music.size());
-                    Bukkit.getServer().getWorld("Ice_Game_Map").playEffect(Bukkit.getServer().getWorld("Ice_Game_Map").getSpawnLocation(), Effect.RECORD_PLAY, music.get(diskNum));
+                    Bukkit.getServer().getWorld(world).playEffect(Bukkit.getServer().getWorld(world).getSpawnLocation(), Effect.RECORD_PLAY, music.get(diskNum));
 
                     //this for-loop gives 2 random locations within the arena
                     for(int locLoop = 1; locLoop <= 2; locLoop++){
@@ -88,39 +89,39 @@ public class IcyFlurry extends JavaPlugin implements Listener{
                         createXZs.add(zCreate);
                     }
 
-                    Location createLoc = new Location(getServer().getWorld("Ice_Game_Map"), createXZs.get(0), 26, createXZs.get(1));
-                    Location createLocLeft = new Location(getServer().getWorld("Ice_Game_Map"), createXZs.get(0) - 1, 26, createXZs.get(1));
-                    Location createLocUp = new Location(getServer().getWorld("Ice_Game_Map"), createXZs.get(0), 26, createXZs.get(1) - 1);
-                    Location createLocDiag = new Location(getServer().getWorld("Ice_Game_Map"), createXZs.get(0) - 1, 26, createXZs.get(1) - 1);
-                    Location secCreateLoc = new Location(getServer().getWorld("Ice_Game_Map"), createXZs.get(2), 26, createXZs.get(3));
-                    Location secCreateLocLeft = new Location(getServer().getWorld("Ice_Game_Map"), createXZs.get(2) - 1, 26, createXZs.get(3));
-                    Location secCreateLocUp = new Location(getServer().getWorld("Ice_Game_Map"), createXZs.get(2), 26, createXZs.get(3) - 1);
-                    Location secCreateLocDiag = new Location(getServer().getWorld("Ice_Game_Map"), createXZs.get(2) - 1, 26, createXZs.get(3) - 1);
-                    /*Location thirdCreateLoc = new Location(getServer().getWorld("Ice_Game_Map"), createXZs.get(4), 26, createXZs.get(5));
-                    Location thirdCreateLocLeft = new Location(getServer().getWorld("Ice_Game_Map"), createXZs.get(4) - 1, 26, createXZs.get(5));
-                    Location thirdCreateLocUp = new Location(getServer().getWorld("Ice_Game_Map"), createXZs.get(4), 26, createXZs.get(5) - 1);
-                    Location thirdCreateLocDiag = new Location(getServer().getWorld("Ice_Game_Map"), createXZs.get(4) - 1, 26, createXZs.get(5) - 1);
-                    Location fourthCreateLoc = new Location(getServer().getWorld("Ice_Game_Map"), createXZs.get(6), 26, createXZs.get(7));
-                    Location fourthCreateLocLeft = new Location(getServer().getWorld("Ice_Game_Map"), createXZs.get(6) - 1, 26, createXZs.get(7));
-                    Location fourthCreateLocUp = new Location(getServer().getWorld("Ice_Game_Map"), createXZs.get(6), 26, createXZs.get(7) - 1);
-                    Location fourthCreateLocDiag = new Location(getServer().getWorld("Ice_Game_Map"), createXZs.get(6) - 1, 26, createXZs.get(7) - 1);*/
+                    Location createLoc = new Location(getServer().getWorld(world), createXZs.get(0), 26, createXZs.get(1));
+                    Location createLocLeft = new Location(getServer().getWorld(world), createXZs.get(0) - 1, 26, createXZs.get(1));
+                    Location createLocUp = new Location(getServer().getWorld(world), createXZs.get(0), 26, createXZs.get(1) - 1);
+                    Location createLocDiag = new Location(getServer().getWorld(world), createXZs.get(0) - 1, 26, createXZs.get(1) - 1);
+                    Location secCreateLoc = new Location(getServer().getWorld(world), createXZs.get(2), 26, createXZs.get(3));
+                    Location secCreateLocLeft = new Location(getServer().getWorld(world), createXZs.get(2) - 1, 26, createXZs.get(3));
+                    Location secCreateLocUp = new Location(getServer().getWorld(world), createXZs.get(2), 26, createXZs.get(3) - 1);
+                    Location secCreateLocDiag = new Location(getServer().getWorld(world), createXZs.get(2) - 1, 26, createXZs.get(3) - 1);
+                    /*Location thirdCreateLoc = new Location(getServer().getWorld(world), createXZs.get(4), 26, createXZs.get(5));
+                    Location thirdCreateLocLeft = new Location(getServer().getWorld(world), createXZs.get(4) - 1, 26, createXZs.get(5));
+                    Location thirdCreateLocUp = new Location(getServer().getWorld(world), createXZs.get(4), 26, createXZs.get(5) - 1);
+                    Location thirdCreateLocDiag = new Location(getServer().getWorld(world), createXZs.get(4) - 1, 26, createXZs.get(5) - 1);
+                    Location fourthCreateLoc = new Location(getServer().getWorld(world), createXZs.get(6), 26, createXZs.get(7));
+                    Location fourthCreateLocLeft = new Location(getServer().getWorld(world), createXZs.get(6) - 1, 26, createXZs.get(7));
+                    Location fourthCreateLocUp = new Location(getServer().getWorld(world), createXZs.get(6), 26, createXZs.get(7) - 1);
+                    Location fourthCreateLocDiag = new Location(getServer().getWorld(world), createXZs.get(6) - 1, 26, createXZs.get(7) - 1);*/
 
-                    final Block origBlockOne = Bukkit.getServer().getWorld("Ice_Game_Map").getBlockAt(createLoc);
-                    final Block origBlockOneLeft = Bukkit.getServer().getWorld("Ice_Game_Map").getBlockAt(createLocLeft);
-                    final Block origBlockOneUp = Bukkit.getServer().getWorld("Ice_Game_Map").getBlockAt(createLocUp);
-                    final Block origBlockOneDiag = Bukkit.getServer().getWorld("Ice_Game_Map").getBlockAt(createLocDiag);
-                    final Block origBlockTwo = Bukkit.getServer().getWorld("Ice_Game_Map").getBlockAt(secCreateLoc);
-                    final Block origBlockTwoLeft = Bukkit.getServer().getWorld("Ice_Game_Map").getBlockAt(secCreateLocLeft);
-                    final Block origBlockTwoUp = Bukkit.getServer().getWorld("Ice_Game_Map").getBlockAt(secCreateLocUp);
-                    final Block origBlockTwoDiag = Bukkit.getServer().getWorld("Ice_Game_Map").getBlockAt(secCreateLocDiag);
-                    /*final Block origBlockThree = Bukkit.getServer().getWorld("Ice_Game_Map").getBlockAt(thirdCreateLoc);
-                    final Block origBlockThreeLeft = Bukkit.getServer().getWorld("Ice_Game_Map").getBlockAt(thirdCreateLocLeft);
-                    final Block origBlockThreeUp = Bukkit.getServer().getWorld("Ice_Game_Map").getBlockAt(thirdCreateLocUp);
-                    final Block origBlockThreeDiag = Bukkit.getServer().getWorld("Ice_Game_Map").getBlockAt(thirdCreateLocDiag);
-                    final Block origBlockFour = Bukkit.getServer().getWorld("Ice_Game_Map").getBlockAt(fourthCreateLoc);
-                    final Block origBlockFourLeft = Bukkit.getServer().getWorld("Ice_Game_Map").getBlockAt(fourthCreateLocLeft);
-                    final Block origBlockFourUp = Bukkit.getServer().getWorld("Ice_Game_Map").getBlockAt(fourthCreateLocUp);
-                    final Block origBlockFourDiag = Bukkit.getServer().getWorld("Ice_Game_Map").getBlockAt(fourthCreateLocDiag);*/
+                    final Block origBlockOne = Bukkit.getServer().getWorld(world).getBlockAt(createLoc);
+                    final Block origBlockOneLeft = Bukkit.getServer().getWorld(world).getBlockAt(createLocLeft);
+                    final Block origBlockOneUp = Bukkit.getServer().getWorld(world).getBlockAt(createLocUp);
+                    final Block origBlockOneDiag = Bukkit.getServer().getWorld(world).getBlockAt(createLocDiag);
+                    final Block origBlockTwo = Bukkit.getServer().getWorld(world).getBlockAt(secCreateLoc);
+                    final Block origBlockTwoLeft = Bukkit.getServer().getWorld(world).getBlockAt(secCreateLocLeft);
+                    final Block origBlockTwoUp = Bukkit.getServer().getWorld(world).getBlockAt(secCreateLocUp);
+                    final Block origBlockTwoDiag = Bukkit.getServer().getWorld(world).getBlockAt(secCreateLocDiag);
+                    /*final Block origBlockThree = Bukkit.getServer().getWorld(world).getBlockAt(thirdCreateLoc);
+                    final Block origBlockThreeLeft = Bukkit.getServer().getWorld(world).getBlockAt(thirdCreateLocLeft);
+                    final Block origBlockThreeUp = Bukkit.getServer().getWorld(world).getBlockAt(thirdCreateLocUp);
+                    final Block origBlockThreeDiag = Bukkit.getServer().getWorld(world).getBlockAt(thirdCreateLocDiag);
+                    final Block origBlockFour = Bukkit.getServer().getWorld(world).getBlockAt(fourthCreateLoc);
+                    final Block origBlockFourLeft = Bukkit.getServer().getWorld(world).getBlockAt(fourthCreateLocLeft);
+                    final Block origBlockFourUp = Bukkit.getServer().getWorld(world).getBlockAt(fourthCreateLocUp);
+                    final Block origBlockFourDiag = Bukkit.getServer().getWorld(world).getBlockAt(fourthCreateLocDiag);*/
 
                     final Material origTypeOne = origBlockOne.getType();
                     final Material origTypeOneLeft = origBlockOneLeft.getType();
@@ -181,13 +182,13 @@ public class IcyFlurry extends JavaPlugin implements Listener{
 
                 //stop music and drop hellHail
                 else if (tenSeconds >= 7 && (tenSeconds %2 != 0)) {
-                    Bukkit.getServer().getWorld("Ice_Game_Map").playEffect(Bukkit.getServer().getWorld("Ice_Game_Map").getSpawnLocation(), Effect.RECORD_PLAY, 0);
-                    Bukkit.getServer().getWorld("Ice_Game_Map").playSound(Bukkit.getServer().getWorld("Ice_Game_Map").getSpawnLocation(), Sound.AMBIENCE_RAIN, 1, 2);
+                    Bukkit.getServer().getWorld(world).playEffect(Bukkit.getServer().getWorld(world).getSpawnLocation(), Effect.RECORD_PLAY, 0);
+                    Bukkit.getServer().getWorld(world).playSound(Bukkit.getServer().getWorld(world).getSpawnLocation(), Sound.AMBIENCE_RAIN, 1, 2);
 
                     for (int theX = (0 - hellHailRadius); theX <= hellHailRadius; theX++) {
                         for (int theZ = (0 - hellHailRadius); theZ <= hellHailRadius; theZ++) {
                             Location l = new Location(loc.getWorld(), loc.getX() + theX, loc.getY() + 11, loc.getZ() + theZ);
-                            Snowball hellHail = (Snowball) Bukkit.getWorld("Ice_Game_Map").spawnEntity(l, EntityType.SNOWBALL);
+                            Snowball hellHail = (Snowball) Bukkit.getWorld(world).spawnEntity(l, EntityType.SNOWBALL);
                             hellHail.setVelocity(new Vector(0, -1, 0));
                         }
                     }
@@ -199,30 +200,30 @@ public class IcyFlurry extends JavaPlugin implements Listener{
             int seconds = 1;
             public void run() {
                 seconds++;
-                Location loc = Bukkit.getServer().getWorld("Ice_Game_Map").getSpawnLocation();
+                Location loc = Bukkit.getServer().getWorld(world).getSpawnLocation();
 
                 if(seconds == 37)
                     Bukkit.broadcastMessage("[" + ChatColor.GOLD + "Server" + ChatColor.WHITE + "]: " + ChatColor.YELLOW + "15 seconds until the round begins");
 
                 else if (seconds == 47) {
                     Bukkit.broadcastMessage("[" + ChatColor.GOLD + "Server" + ChatColor.WHITE + "]: " + ChatColor.YELLOW + "5");
-                    Bukkit.getWorld("Ice_Game_Map").playSound(loc, Sound.CLICK, 10, 1);
+                    Bukkit.getWorld(world).playSound(loc, Sound.CLICK, 10, 1);
                 }
                 else if (seconds == 48){
                     Bukkit.broadcastMessage("[" + ChatColor.GOLD + "Server" + ChatColor.WHITE + "]: " + ChatColor.YELLOW + "4");
-                    Bukkit.getWorld("Ice_Game_Map").playSound(loc, Sound.CLICK, 10, 1);
+                    Bukkit.getWorld(world).playSound(loc, Sound.CLICK, 10, 1);
                 }
                 else if (seconds == 49){
                     Bukkit.broadcastMessage("[" + ChatColor.GOLD + "Server" + ChatColor.WHITE + "]: " + ChatColor.YELLOW + "3");
-                    Bukkit.getWorld("Ice_Game_Map").playSound(loc, Sound.CLICK, 10, 1);
+                    Bukkit.getWorld(world).playSound(loc, Sound.CLICK, 10, 1);
                 }
                 else if (seconds == 50){
                     Bukkit.broadcastMessage("[" + ChatColor.GOLD + "Server" + ChatColor.WHITE + "]: " + ChatColor.YELLOW + "2");
-                    Bukkit.getWorld("Ice_Game_Map").playSound(loc, Sound.CLICK, 10, 1);
+                    Bukkit.getWorld(world).playSound(loc, Sound.CLICK, 10, 1);
                 }
                 else if (seconds == 51){
                     Bukkit.broadcastMessage("[" + ChatColor.GOLD + "Server" + ChatColor.WHITE + "]: " + ChatColor.YELLOW + "Don't Die.");
-                    Bukkit.getWorld("Ice_Game_Map").playSound(loc, Sound.CLICK, 10, 1);
+                    Bukkit.getWorld(world).playSound(loc, Sound.CLICK, 10, 1);
                 }
             }
         }, 0L, 20L); //runs once every second
